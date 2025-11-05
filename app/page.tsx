@@ -12,15 +12,29 @@ const projects: Project[] = [
     title: "ChiqueButik",
     description: "An e-commerce project built with Next.js, Tailwind CSS, and Firebase.",
     github: "https://github.com/antonioobaid/chiquebutik",
-    live: "https://chiquebutik-antonio.vercel.app",
-    images: ["/images/chiquebutik.png", "/images/chiquebutik1.png" , "/images/chiquebutik2.png" , "/images/chiquebutik3.png"],
+    live: "https://chiquebutik.vercel.app/",
+    images: [
+      "/images/chiquebutik1.png",
+      "/images/chiquebutik-favoriter.png",
+      "/images/chiquebutik-konkakter.png",
+      "/images/chiquebutik-produkter.png",
+      "/images/chiquebutik-orders.png",
+      "/images/chiquebutik-betalning.png",
+      "/images/chiquebutik-checkout.png",
+      "/images/chiquebutik-varukorg.png",
+    ],
   },
   {
     title: "kopia-av-Airbnb",
     description: "A full-stack project using Next.js, Tailwind, Supabase and Clerk.",
     github: "https://github.com/antonioobaid/kopia-av-Airbnb",
     live: "https://airbnb-clone-antonio.vercel.app",
-    images: ["/images/kopia-av-airbnb.png" , "/images/kopia-av-airbnb1.png" , "/images/kopia-av-airbnb2.png" , "/images/kopia-av-airbnb3.png"],
+    images: [
+      "/images/kopia-av-airbnb.png",
+      "/images/kopia-av-airbnb1.png",
+      "/images/kopia-av-airbnb2.png",
+      "/images/kopia-av-airbnb3.png",
+    ],
   },
 ];
 
@@ -61,89 +75,96 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen">
+    <div className="bg-gradient-to-b from-white via-blue-50 to-blue-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500 min-h-screen bg-fixed">
       <Navbar />
 
-      {/* 👇 First intro section (no navbar link) */}
-      <section id="intro" className="text-center py-16 flex flex-col items-center gap-6  bg-white dark:bg-gray-800 shadow-inner">
+      {/* 👋 Intro Section */}
+      <section
+        id="intro"
+        className="text-center py-16 flex flex-col items-center gap-6 bg-white/60 dark:bg-gray-800/70 shadow-inner backdrop-blur-sm px-4"
+      >
         <img
           src="/images/me.jpg"
           alt="Antonio"
-          className="w-40 h-40 rounded-full object-cover shadow-lg"
+          className="w-36 h-36 sm:w-40 sm:h-40 rounded-full object-cover shadow-lg"
         />
-        <h2 className="text-4xl font-bold mb-2">Hi, I'm Antonio</h2>
-        <p className="max-w-xl text-gray-700 dark:text-gray-300">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-2">Hi, I'm Antonio</h2>
+        <p className="max-w-xl text-gray-700 dark:text-gray-300 text-base sm:text-lg">
           Frontend developer with experience in Next.js, React, Tailwind CSS, Firebase, Supabase, and building full-stack applications.
         </p>
       </section>
 
-      <section id="projects" className="py-16 px-6   ">
-        <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* 💼 Projects Section */}
+      <section id="projects" className="py-16 px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
       </section>
 
-      <section id="about" className="py-16 text-center px-6 bg-white dark:bg-gray-800 shadow-inner">
-          <h2 className="text-3xl font-bold mb-6">About Me</h2>
-          <p className="max-w-2xl mx-auto mb-8 text-gray-700 dark:text-gray-300">
-            I’m passionate about front-end development, user experience, and turning complex problems into simple, beautiful, and intuitive designs.  
-            I love working with modern technologies like <strong>Next.js</strong>, <strong>React</strong>, and <strong>Firebase</strong>.
-          </p>
+      {/* 👨‍💻 About Me Section */}
+      <section
+        id="about"
+        className="py-16 text-center px-4 sm:px-6 bg-white/60 dark:bg-gray-800/70 shadow-inner backdrop-blur-sm"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
+        <p className="max-w-2xl mx-auto mb-8 text-gray-700 dark:text-gray-300 text-base sm:text-lg">
+          I’m passionate about front-end development, user experience, and turning complex problems into simple, beautiful, and intuitive designs.
+          I love working with modern technologies like <strong>Next.js</strong>, <strong>React</strong>, and <strong>Firebase</strong>.
+        </p>
 
-          <div className="flex justify-center gap-6 text-blue-600 dark:text-blue-400 text-4xl mb-8">
-            <FaReact title="React" />
-            <FaDatabase title="Firebase / Supabase" />
-            <FaEnvelope title="Contact" />
-          </div>
+        <div className="flex justify-center gap-6 text-blue-600 dark:text-blue-400 text-3xl sm:text-4xl mb-8 flex-wrap">
+          <FaReact title="React" />
+          <FaDatabase title="Firebase / Supabase" />
+          <FaEnvelope title="Contact" />
+        </div>
 
-          {/* Social media links */}
-          <div className="flex justify-center gap-6 text-lg font-medium">
-            <a
-              href="https://github.com/antonioobaid"
-              target="_blank"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600"
-            >
-              <FaGithub className="text-2xl" /> GitHub
-            </a>
+        {/* 🌐 Social Media Links */}
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-base sm:text-lg font-medium mt-6">
+          <a
+            href="https://github.com/antonioobaid"
+            target="_blank"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-transform hover:scale-105"
+          >
+            <FaGithub className="text-2xl" /> GitHub
+          </a>
 
-            <a
-              href="https://www.linkedin.com/in/tony-obaid-5535b1133"
-              target="_blank"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600"
-            >
-              <FaLinkedin className="text-2xl" /> LinkedIn
-            </a>
+          <a
+            href="https://www.linkedin.com/in/tony-obaid-5535b1133"
+            target="_blank"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-transform hover:scale-105"
+          >
+            <FaLinkedin className="text-2xl" /> LinkedIn
+          </a>
 
-            <a
-              href="https://instagram.com/abo_george"
-              target="_blank"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-pink-500"
-            >
-              <i className="fab fa-instagram text-2xl"></i> Instagram
-            </a>
+          <a
+            href="https://instagram.com/abo_george"
+            target="_blank"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-pink-500 transition-transform hover:scale-105"
+          >
+            <i className="fab fa-instagram text-2xl"></i> Instagram
+          </a>
 
-            <a
-              href="https://facebook.com/tonyobaid"
-              target="_blank"
-              className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-700"
-            >
-              <i className="fab fa-facebook text-2xl"></i> Facebook
-            </a>
-          </div>
+          <a
+            href="https://facebook.com/tonyobaid"
+            target="_blank"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-700 transition-transform hover:scale-105"
+          >
+            <i className="fab fa-facebook text-2xl"></i> Facebook
+          </a>
+        </div>
       </section>
 
-
-      {/* Contact Section */}
-      <section id="contact" className="text-center py-16">
-        <h2 className="text-3xl font-bold mb-6">Kontakta mig</h2>
+      {/* ✉️ Contact Section */}
+      <section id="contact" className="text-center py-16 px-4 sm:px-0">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6">Kontakta mig</h2>
         <form
           onSubmit={handleSubmit}
-          className="mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 w-full max-w-md"
+          className="mx-auto bg-white/70 dark:bg-gray-800/70 shadow-lg rounded-2xl p-6 sm:p-8 w-full max-w-md backdrop-blur-sm"
         >
-          <label className="block mb-4">
+          <label className="block mb-4 text-left">
             <span className="text-gray-700 dark:text-gray-300">Subject</span>
             <input
               type="text"
@@ -156,7 +177,7 @@ const Home: React.FC = () => {
             />
           </label>
 
-          <label className="block mb-4">
+          <label className="block mb-4 text-left">
             <span className="text-gray-700 dark:text-gray-300">Name</span>
             <input
               type="text"
@@ -168,7 +189,7 @@ const Home: React.FC = () => {
             />
           </label>
 
-          <label className="block mb-4">
+          <label className="block mb-4 text-left">
             <span className="text-gray-700 dark:text-gray-300">Email</span>
             <input
               type="email"
@@ -180,7 +201,7 @@ const Home: React.FC = () => {
             />
           </label>
 
-          <label className="block mb-4">
+          <label className="block mb-4 text-left">
             <span className="text-gray-700 dark:text-gray-300">Message</span>
             <textarea
               name="message"
